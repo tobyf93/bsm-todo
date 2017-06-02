@@ -162,7 +162,11 @@ WOW!  That looks fancy!
 
 We have the look and feel of this Footer spot on but the functionality is missing...  Next thing we need to do is to get those buttons working for us!
 
-To do this we are going to store some state on the App Component and pass it through to the Footer Component as a prop.  You will notice that i have also imported some constants to help us out:
+To do this we are going to:
+- Import constants
+- Create a state object
+- Create a filter method
+- Pass new props to Footer (show and filter)
 
 ```javascript
 // src/containers/App.js
@@ -175,19 +179,101 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.filter = this.filter.bind(this);
     this.state = {
       show: ALL_TODOS
     };
   }
 
+  filter(newFilter) {
+    this.setState({ show: newFilter });
+  }
+
   render() {
     return (
       <div>
-        <Footer show={this.state.show} />
+        <Footer
+          show={this.state.show}
+          filter={this.filter}
+        />
       </div>
     );
   }
 }
 
 export default App;
+```
+
+Our Footer Component should look something like this to cater for the new props:
+
+```javascript
+// src/components/Footer.js
+
+import React, { Component } from 'react';
+import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
+
+class Footer extends Component {
+  render() {
+    return (
+      <footer className="footer">
+        <span className="todo-count">
+          <strong>99</strong> todos left
+        </span>
+        <ul className="filters">
+          <li>
+            <a
+            className={this.props.show === ALL_TODOS ? 'selected' : ''}
+            onClick={() => this.props.filter(ALL_TODOS)}
+            >
+              All
+            </a>
+          </li>
+          <li>
+            <a
+            className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
+            onClick={() => this.props.filter(ACTIVE_TODOS)}
+            >
+              Active
+            </a>
+          </li>
+          <li>
+            <a
+            className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
+            onClick={() => this.props.filter(COMPLETED_TODOS)}
+            >
+              Completed
+            </a>
+          </li>
+        </ul>
+        <button className="clear-completed">
+        Clear completed
+        </button>
+      </footer>
+    );
+  }
+}
+```
+
+## Challenge
+You would have noticed there are other components lying around that we haven't yet used:
+- Header
+- Todos
+
+Lets add them into the mix:
+
+```javascript
+// src/containers/App.js
+
+render() {
+    return (
+      <div>
+      	<Header />
+	<Todos />
+        <Footer
+          show={this.state.show}
+          filter={this.filter}
+        />
+      </div>
+    );
+  }
 ```
