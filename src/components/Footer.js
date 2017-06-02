@@ -10,33 +10,24 @@ class Footer extends Component {
 				</span>
 				<ul className="filters">
 					<li>
-						<a
-							className={this.props.show === ALL_TODOS ? 'selected' : ''}
-							onClick={() => this.props.filter(ALL_TODOS)}
-						>
+						<a className="selected">
 							All
 						</a>
 					</li>
 					<li>
-						<a
-							className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
-							onClick={() => this.props.filter(ACTIVE_TODOS)}
-						>
+						<a>
 							Active
 						</a>
 					</li>
 					<li>
-						<a
-							className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
-							onClick={() => this.props.filter(COMPLETED_TODOS)}
-						>
+						<a>
 							Completed
 						</a>
 					</li>
 				</ul>
 				<button
 					className="clear-completed"
-					onClick={this.props.clearCompleted}
+					onClick={() => console.log('Clear completed Todos')}
 				>
 					Clear completed
 				</button>
