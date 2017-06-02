@@ -86,3 +86,26 @@ ReactDOM.render(
 Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
 
 ![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/helloWorld.png)
+
+## First React Component
+Lets create a new file:
+
+```javascript
+// src/containers/App.js
+
+import React, { Component } from 'react';
+
+class App extends Component {
+	constructor(props) {}
+
+	render() {
+		return (
+			<div style={{ padding: '15px', textAlign: 'center' }}>
+				Hello World!
+			</div>
+		);
+	}
+}
+
+export default App;
+```
