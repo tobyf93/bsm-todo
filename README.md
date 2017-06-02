@@ -83,7 +83,7 @@ ReactDOM.render(
   </div>, document.getElementsByClassName('todoapp')[0]);
 ```
 
-Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
+Here we are targetting the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
 
 ![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/helloWorld.png)
 
