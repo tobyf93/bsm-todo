@@ -83,7 +83,7 @@ ReactDOM.render(
   </div>, document.getElementsByClassName('todoapp')[0]);
 ```
 
-Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
+Here we are targetting the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
 
 ![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/helloWorld.png)
 
@@ -222,36 +222,41 @@ class Footer extends Component {
         <ul className="filters">
           <li>
             <a
-            className={this.props.show === ALL_TODOS ? 'selected' : ''}
-            onClick={() => this.props.filter(ALL_TODOS)}
+              className={this.props.show === ALL_TODOS ? 'selected' : ''}
+              onClick={() => this.props.filter(ALL_TODOS)}
             >
               All
             </a>
           </li>
           <li>
             <a
-            className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
-            onClick={() => this.props.filter(ACTIVE_TODOS)}
+              className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
+              onClick={() => this.props.filter(ACTIVE_TODOS)}
             >
               Active
             </a>
           </li>
           <li>
             <a
-            className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
-            onClick={() => this.props.filter(COMPLETED_TODOS)}
+              className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
+              onClick={() => this.props.filter(COMPLETED_TODOS)}
             >
               Completed
             </a>
           </li>
         </ul>
-        <button className="clear-completed">
-        Clear completed
+        <button
+          className="clear-completed"
+          onClick={this.props.clearCompleted}
+        >
+          Clear completed
         </button>
       </footer>
     );
   }
 }
+
+export default Footer;
 ```
 
 ## Challenge
@@ -283,3 +288,10 @@ render() {
 ```
 
 ![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/allComponents.png)
+
+As a user i can...
+- Create a Todo by typing in a label and hitting ENTER
+- Mark a todo as Completed by clicking the circle
+- See how many items are left
+- Filter todos by All, Active and Completed
+- Clear Completed Todos
