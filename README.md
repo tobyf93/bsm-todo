@@ -131,3 +131,30 @@ ReactDOM.render(<App />, document.getElementsByClassName('todoapp')[0]);
 ```
 
 You won't see a different in the web page.  This is a good thing!  It means that we have successfully created our first React Component!  The App container is going to be the root Component.  All other Components will be nested within.
+
+## Footer Component
+You may have noticed a Footer Component in the project.  Lets go and use that in our App Component:
+
+```javascript
+import React, { Component } from 'react';
+import Footer from '../components/Footer';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+WOW!  That looks fancy!
+
