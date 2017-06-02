@@ -264,6 +264,8 @@ Lets add them into the mix:
 ```javascript
 // src/containers/App.js
 
+...
+
 render() {
     return (
       <div>
@@ -276,4 +278,8 @@ render() {
       </div>
     );
   }
+  
+...
 ```
+
+![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/allComponents.png)
