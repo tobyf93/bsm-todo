@@ -27,10 +27,10 @@ This will create you a branch new git branch that you will work on to complete t
 
 ## src/
 ### components/
-React components.
+React Components.
 
 ### containers/
-Also React components.  You won't understand the difference between components and containers until i introduce you to Redux.
+Also React Components.  You won't understand the difference between components and containers until i introduce you to Redux.
 
 ### index.html
 The HTML page that our application will be injected into.
@@ -71,3 +71,17 @@ import ReactDOM from 'react-dom';
 ```
 
 **Note:** import statements should be placed at the top of the file in the outer-most scope.
+
+At this point you may be asking "Why on earth is React split into two separate modules?  Why not just one?".  To answer that i will explain what `react-dom` is for.  This modules main purpose is to provide the glue between React Components and the DOM.  The DOM is specific to Web Applications.  When `react-native` came along there was no need to have web-specific code lying around in the `react` module as iOS/Android apps don't work with a DOM.
+
+Ok so now that we have our modules ready to go it is time to inject something into our basic web page:
+
+```javascript
+ReactDOM.render(
+	<div style={{ padding: '15px', textAlign: 'center' }}>
+		Hello World!
+	</div>, document.getElementsByClassName('todoapp')[0]);
+```
+
+Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
+
