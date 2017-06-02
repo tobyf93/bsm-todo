@@ -31,3 +31,5 @@ This project is powered by Webpack.  Webpack is responsible for making builds fr
 `yarn | npm start [-- --port <port>]` will get us off and running!
 
 If you visit `http://localhost:<port>/` you will see a very basic web page:
+
+![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/basicWebPage.png)
