@@ -78,10 +78,83 @@ Ok so now that we have our modules ready to go it is time to inject something in
 
 ```javascript
 ReactDOM.render(
-	<div style={{ padding: '15px', textAlign: 'center' }}>
-		Hello World!
-	</div>, document.getElementsByClassName('todoapp')[0]);
+  <div style={{ padding: '15px', textAlign: 'center' }}>
+    Hello World!
+  </div>, document.getElementsByClassName('todoapp')[0]);
 ```
 
 Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
+
+![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/helloWorld.png)
+
+## First React Component
+Lets create a new file:
+
+```javascript
+// src/containers/App.js
+
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div style={{ padding: '15px', textAlign: 'center' }}>
+        Hello World!
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+This is a basic React Component that does exactly what we did previously.  Lets go back to our `ReactDOM.render(...)` call and inject our new component instead of a literal JSX element:
+
+```javascript
+// src/index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './containers/app';
+import './index.html';
+
+// Todo resources
+import 'todomvc-app-css/index.css';
+import 'todomvc-common/base.css';
+import 'todomvc-common/base.js';
+
+ReactDOM.render(<App />, document.getElementsByClassName('todoapp')[0]);
+```
+
+You won't see a different in the web page.  This is a good thing!  It means that we have successfully created our first React Component!  The App container is going to be the root Component.  All other Components will be nested within.
+
+## Footer Component
+You may have noticed a Footer Component in the project.  Lets go and use that in our App Component:
+
+```javascript
+import React, { Component } from 'react';
+import Footer from '../components/Footer';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+WOW!  That looks fancy!
 
