@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
 import Header from '../components/Header';
+import Todos from '../components/Todos';
 import Footer from '../components/Footer';
 
 class App extends Component {
@@ -25,11 +26,7 @@ class App extends Component {
 		return (
 			<div>
 				<Header />
-				<section className="main">
-					<div style={{ padding: '15px' }}>
-						Todos will go here...
-					</div>
-				</section>
+				<Todos />
 				<Footer
 					show={this.state.show}
 					filter={this.filter}
