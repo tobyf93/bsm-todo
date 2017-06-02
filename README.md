@@ -78,9 +78,9 @@ Ok so now that we have our modules ready to go it is time to inject something in
 
 ```javascript
 ReactDOM.render(
-	<div style={{ padding: '15px', textAlign: 'center' }}>
-		Hello World!
-	</div>, document.getElementsByClassName('todoapp')[0]);
+  <div style={{ padding: '15px', textAlign: 'center' }}>
+    Hello World!
+  </div>, document.getElementsByClassName('todoapp')[0]);
 ```
 
 Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
@@ -103,7 +103,7 @@ class App extends Component {
   render() {
     return (
       <div style={{ padding: '15px', textAlign: 'center' }}>
-      Hello World!
+        Hello World!
       </div>
     );
   }
@@ -129,3 +129,5 @@ import 'todomvc-common/base.js';
 
 ReactDOM.render(<App />, document.getElementsByClassName('todoapp')[0]);
 ```
+
+You won't see a different in the web page.  This is a good thing!  It means that we have successfully created our first React Component!  The App container is going to be the root Component.  All other Components will be nested within.
