@@ -25,9 +25,63 @@
 
 This will create you a branch new git branch that you will work on to complete this project.  Ensure that you are **ALWAYS** working in your own branch.
 
+## src/
+### components/
+React Components.
+
+### containers/
+Also React Components.  You won't understand the difference between components and containers until i introduce you to Redux.
+
+### index.html
+The HTML page that our application will be injected into.
+
+### index.js
+Webpack's entry point.  Everything to do with our application will stem from this file.
+
 ## Web Server
 This project is powered by Webpack.  Webpack is responsible for making builds from the source files that we create (more on this later).  We will be using a Node web server called webpack-dev-server.
 
 `yarn | npm start [-- --port <port>]` will get us off and running!
 
-If you visit `http://localhost:<port>/` you will see a very basic web page:
+If you visit `http://localhost:<port>/` you should see a really exciting web page:
+
+![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/basicWebPage.png)
+
+## Injecting React
+Lets visit our entry point:
+
+```javascript
+// src/index.js
+
+import './index.html';
+
+// Todo resources
+import 'todomvc-app-css/index.css';
+import 'todomvc-common/base.css';
+import 'todomvc-common/base.js';
+```
+
+This syntax may be foreign to some of you.  What this is using is the new ES6 Module system.  It's telling Webpack that we want to import these assets into our project.  This gives us our basic web page.
+
+But we're not here to create a basic web page so lets get going with React!  First thing we need to do is import a few more modules:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+```
+
+**Note:** import statements should be placed at the top of the file in the outer-most scope.
+
+At this point you may be asking "Why on earth is React split into two separate modules?  Why not just one?".  To answer that i will explain what `react-dom` is for.  This modules main purpose is to provide the glue between React Components and the DOM.  The DOM is specific to Web Applications.  When `react-native` came along there was no need to have web-specific code lying around in the `react` module as iOS/Android apps don't work with a DOM.
+
+Ok so now that we have our modules ready to go it is time to inject something into our basic web page:
+
+```javascript
+ReactDOM.render(
+	<div style={{ padding: '15px', textAlign: 'center' }}>
+		Hello World!
+	</div>, document.getElementsByClassName('todoapp')[0]);
+```
+
+Here we are identifying the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
+
