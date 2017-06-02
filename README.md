@@ -288,3 +288,10 @@ render() {
 ```
 
 ![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/allComponents.png)
+
+As a user i can...
+- Create a Todo by typing in a label and hitting ENTER
+- Mark a todo as Completed by clicking the circle
+- See how many items are left
+- Filter todos by All, Active and Completed
+- Clear Completed Todos
