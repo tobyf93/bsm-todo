@@ -19,5 +19,8 @@
 - `yarn | npm install` (Install Dependencies)
 
 # Tutorial
-## Web Server
-As this project is wrapped in a Webpack build process...
+## Create Personal Branch
+- `git checkout template`
+- `git checkout -b <yourName>`
+
+This will create you a branch new git branch that you will work on to complete this project.  Ensure that you are *ALWAYS* working in your own branch.
