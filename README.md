@@ -96,17 +96,17 @@ Lets create a new file:
 import React, { Component } from 'react';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-	render() {
-		return (
-			<div style={{ padding: '15px', textAlign: 'center' }}>
-				Hello World!
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div style={{ padding: '15px', textAlign: 'center' }}>
+      Hello World!
+      </div>
+    );
+  }
 }
 
 export default App;
