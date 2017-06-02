@@ -222,36 +222,41 @@ class Footer extends Component {
         <ul className="filters">
           <li>
             <a
-            className={this.props.show === ALL_TODOS ? 'selected' : ''}
-            onClick={() => this.props.filter(ALL_TODOS)}
+              className={this.props.show === ALL_TODOS ? 'selected' : ''}
+              onClick={() => this.props.filter(ALL_TODOS)}
             >
               All
             </a>
           </li>
           <li>
             <a
-            className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
-            onClick={() => this.props.filter(ACTIVE_TODOS)}
+              className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
+              onClick={() => this.props.filter(ACTIVE_TODOS)}
             >
               Active
             </a>
           </li>
           <li>
             <a
-            className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
-            onClick={() => this.props.filter(COMPLETED_TODOS)}
+              className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
+              onClick={() => this.props.filter(COMPLETED_TODOS)}
             >
               Completed
             </a>
           </li>
         </ul>
-        <button className="clear-completed">
-        Clear completed
+        <button
+          className="clear-completed"
+          onClick={this.props.clearCompleted}
+        >
+          Clear completed
         </button>
       </footer>
     );
   }
 }
+
+export default Footer;
 ```
 
 ## Challenge
