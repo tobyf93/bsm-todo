@@ -6,7 +6,7 @@ class Footer extends Component {
 		return (
 			<footer className="footer">
 				<span className="todo-count">
-					<strong>99</strong> todos left
+					<strong>99</strong> items left
 				</span>
 				<ul className="filters">
 					<li>
