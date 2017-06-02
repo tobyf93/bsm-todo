@@ -16,7 +16,7 @@
 	- `git clone https://github.com/tobyf93/bsm-todo.git` OR
 	- `git clone git@github.com:tobyf93/bsm-todo.git` (needs SSH key set up)
 - `cd bsm-todo`
-- `yarn | npm install` (Install Dependencies)
+- `[yarn|npm install]` (Install Dependencies)
 
 # Tutorial
 ## Create Personal Branch
@@ -41,7 +41,7 @@ Webpack's entry point.  Everything to do with our application will stem from thi
 ## Web Server
 This project is powered by Webpack.  Webpack is responsible for making builds from the source files that we create (more on this later).  We will be using a Node web server called webpack-dev-server.
 
-`yarn | npm start [-- --port <port>]` will get us off and running!
+`[yarn|npm start] [-- --port <port>]` will get us off and running!
 
 If you visit `http://localhost:<port>/` you should see a really exciting web page:
 
