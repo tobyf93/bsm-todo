@@ -36,7 +36,7 @@ Also React components.  You won't understand the difference between components a
 The HTML page that our application will be injected into.
 
 ### index.js
-Webpacks entry point.  Everything to do with our application will stem from this file.
+Webpack's entry point.  Everything to do with our application will stem from this file.
 
 ## Web Server
 This project is powered by Webpack.  Webpack is responsible for making builds from the source files that we create (more on this later).  We will be using a Node web server called webpack-dev-server.
@@ -47,3 +47,27 @@ If you visit `http://localhost:<port>/` you should see a really exciting web pag
 
 ![alt text](https://github.com/tobyf93/bsm-todo/blob/master/images/basicWebPage.png)
 
+## Injecting React
+Lets visit our entry point:
+
+```javascript
+// src/index.js
+
+import './index.html';
+
+// Todo resources
+import 'todomvc-app-css/index.css';
+import 'todomvc-common/base.css';
+import 'todomvc-common/base.js';
+```
+
+This syntax may be foreign to some of you.  What this is using is the new ES6 Module system.  It's telling Webpack that we want to import these assets into our project.  This gives us our basic web page.
+
+But we're not here to create a basic web page so lets get going with React!  First thing we need to do is import a few more modules:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+```
+
+**Note:** import statements should be placed at the top of the file in the outer-most scope.
