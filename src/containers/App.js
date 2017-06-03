@@ -10,6 +10,7 @@ class App extends Component {
 
     this.id = 0;
     this.create = this.create.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.destroy = this.destroy.bind(this);
     this.filter = this.filter.bind(this);
     this.state = {
@@ -24,7 +25,8 @@ class App extends Component {
         ...this.state.data,
         {
           id: this.id++,
-          label
+          label,
+          complete: false
         }
       ]
     });
@@ -40,15 +42,34 @@ class App extends Component {
     this.setState({ show: newFilter });
   }
 
+  toggle(id) {
+    const data = this.state.data.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          complete: !todo.complete
+        };
+      }
+
+      return todo;
+    });
+
+    this.setState({ data });
+  }
+
   render() {
     return (
       <div>
         <Header create={this.create} />
-        <Todos data={this.state.data} destroy={this.destroy} />
+        <Todos
+          data={this.state.data}
+          toggle={this.toggle}
+          destroy={this.destroy}
+        />
         <Footer
           show={this.state.show}
           filter={this.filter}
-          count={this.state.data.length}
+          count={this.state.data.filter(todo => todo.complete === false).length}
         />
       </div>
     );

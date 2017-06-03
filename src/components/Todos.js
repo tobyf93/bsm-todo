@@ -12,6 +12,8 @@ class Todos extends Component {
                 <Todo
                   key={todo.id}
                   label={todo.label}
+                  complete={todo.complete}
+                  toggle={() => this.props.toggle(todo.id) }
                   destroy={() => this.props.destroy(todo.id) }
                 />
             )

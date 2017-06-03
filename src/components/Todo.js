@@ -8,8 +8,8 @@ class Todo extends Component {
 					<input
 						className="toggle"
 						type="checkbox"
-						checked={false}
-						onChange={() => console.log('Toggle Todo')}
+						checked={this.props.complete}
+						onChange={this.props.toggle}
 					/>
 					<label>
 						{this.props.label}
