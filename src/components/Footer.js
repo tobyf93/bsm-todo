@@ -6,7 +6,8 @@ class Footer extends Component {
     return (
       <footer className="footer">
         <span className="todo-count">
-          <strong>99</strong> todos left
+          <strong>{this.props.count} </strong>
+          { this.props.count === 1 ? 'todo' : 'todos' } left
         </span>
         <ul className="filters">
           <li>

@@ -48,6 +48,7 @@ class App extends Component {
         <Footer
           show={this.state.show}
           filter={this.filter}
+          count={this.state.data.length}
         />
       </div>
     );
