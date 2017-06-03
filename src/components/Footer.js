@@ -11,6 +11,7 @@ function Footer({ count, show, filter, clearCompleted }) {
       <ul className="filters">
         <li>
           <a
+            href="#"
             className={show === ALL_TODOS ? 'selected' : ''}
             onClick={() => filter(ALL_TODOS)}
           >
@@ -19,6 +20,7 @@ function Footer({ count, show, filter, clearCompleted }) {
         </li>
         <li>
           <a
+            href="#"
             className={show === ACTIVE_TODOS ? 'selected' : ''}
             onClick={() => filter(ACTIVE_TODOS)}
           >
@@ -27,6 +29,7 @@ function Footer({ count, show, filter, clearCompleted }) {
         </li>
         <li>
           <a
+            href="#"
             className={show === COMPLETED_TODOS ? 'selected' : ''}
             onClick={() => filter(COMPLETED_TODOS)}
           >
