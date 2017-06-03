@@ -222,7 +222,7 @@ class Footer extends Component {
         <ul className="filters">
           <li>
             <a
-	      href="#"
+              href="#"
               className={this.props.show === ALL_TODOS ? 'selected' : ''}
               onClick={() => this.props.filter(ALL_TODOS)}
             >
@@ -231,7 +231,7 @@ class Footer extends Component {
           </li>
           <li>
             <a
-	      href="#"
+              href="#"
               className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
               onClick={() => this.props.filter(ACTIVE_TODOS)}
             >
@@ -240,7 +240,7 @@ class Footer extends Component {
           </li>
           <li>
             <a
-	      href="#"
+              href="#"
               className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
               onClick={() => this.props.filter(COMPLETED_TODOS)}
             >
@@ -275,17 +275,17 @@ Lets add them into the mix:
 ...
 
 render() {
-    return (
-      <div>
-      	<Header />
-	<Todos />
-        <Footer
-          show={this.state.show}
-          filter={this.filter}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Header />
+      <Todos />
+      <Footer
+        show={this.state.show}
+        filter={this.filter}
+      />
+    </div>
+  );
+}
   
 ...
 ```
