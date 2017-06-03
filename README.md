@@ -80,7 +80,9 @@ Ok so now that we have our modules ready to go it is time to inject something in
 ReactDOM.render(
   <div style={{ padding: '15px', textAlign: 'center' }}>
     Hello World!
-  </div>, document.getElementsByClassName('todoapp')[0]);
+  </div>, 
+  document.getElementsByClassName('todoapp')[0]
+);
 ```
 
 Here we are targeting the placeholder element that is in `src/index.html:10` and injecting a JSX element into it.  What we get as a result is a Hello World! example:
