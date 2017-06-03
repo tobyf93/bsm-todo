@@ -14,7 +14,7 @@ class Todo extends Component {
 					<label>
 						{this.props.label}
 					</label>
-					<button className="destroy" onClick={() => console.log('Destroy Todo')} />
+					<button className="destroy" onClick={this.props.destroy} />
 				</div>
 			</li>
     );

@@ -10,6 +10,7 @@ class App extends Component {
 
     this.id = 0;
     this.create = this.create.bind(this);
+    this.destroy = this.destroy.bind(this);
     this.filter = this.filter.bind(this);
     this.state = {
       show: ALL_TODOS,
@@ -29,6 +30,12 @@ class App extends Component {
     });
   }
 
+  destroy(id) {
+    this.setState({
+      data: this.state.data.filter(todo => todo.id !== id)
+    });
+  }
+
   filter(newFilter) {
     this.setState({ show: newFilter });
   }
@@ -37,7 +44,7 @@ class App extends Component {
     return (
       <div>
         <Header create={this.create} />
-        <Todos data={this.state.data} />
+        <Todos data={this.state.data} destroy={this.destroy} />
         <Footer
           show={this.state.show}
           filter={this.filter}
