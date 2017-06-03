@@ -10,17 +10,17 @@ class Footer extends Component {
 				</span>
 				<ul className="filters">
 					<li>
-						<a className="selected">
+						<a href="#" className="selected">
 							All
 						</a>
 					</li>
 					<li>
-						<a>
+						<a href="#">
 							Active
 						</a>
 					</li>
 					<li>
-						<a>
+						<a href="#">
 							Completed
 						</a>
 					</li>
