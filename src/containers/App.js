@@ -26,9 +26,20 @@ class App extends Component {
         {
           id: this.id++,
           label,
-          complete: false
+          completed: false
         }
       ]
+    });
+  }
+
+  data() {
+    return this.state.data.filter((todo) => {
+      switch (this.state.show) {
+        case ALL_TODOS: return true;
+        case ACTIVE_TODOS: return !todo.completed;
+        case COMPLETED_TODOS: return todo.completed;
+        default: return true;
+      }
     });
   }
 
@@ -47,7 +58,7 @@ class App extends Component {
       if (todo.id === id) {
         return {
           ...todo,
-          complete: !todo.complete
+          completed: !todo.completed
         };
       }
 
@@ -62,14 +73,14 @@ class App extends Component {
       <div>
         <Header create={this.create} />
         <Todos
-          data={this.state.data}
+          data={this.data()}
           toggle={this.toggle}
           destroy={this.destroy}
         />
         <Footer
           show={this.state.show}
           filter={this.filter}
-          count={this.state.data.filter(todo => todo.complete === false).length}
+          count={this.state.data.filter(todo => todo.completed === false).length}
         />
       </div>
     );
