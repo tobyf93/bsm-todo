@@ -295,3 +295,6 @@ As a user i should be able to...
 - See how many items are left
 - Filter todos by All, Active and Completed
 - Clear Completed Todos
+
+**BONUS:**
+- Use local storage to preserve Todos between sessions
