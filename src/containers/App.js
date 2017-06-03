@@ -24,7 +24,7 @@ class App extends Component {
     };
   }
 
-  clearCompleted(id) {
+  clearCompleted() {
     this.setState({
       data: this.state.data.filter(todo => !todo.completed)
     });
@@ -54,29 +54,38 @@ class App extends Component {
     });
   }
 
-  destroy(id) {
-    this.setState({
-      data: this.state.data.filter(todo => todo.id !== id)
-    });
+  destroy(todo) {
+    const i = this.state.data.indexOf(todo);
+
+    if (i >= 0) {
+      this.setState({
+        data: [
+          ...this.state.data.slice(0, i),
+          ...this.state.data.slice(i + 1)
+        ]
+      });
+    }
   }
 
   filter(newFilter) {
     this.setState({ show: newFilter });
   }
 
-  toggle(id) {
-    const data = this.state.data.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed
-        };
-      }
+  toggle(todo) {
+    const i = this.state.data.indexOf(todo);
 
-      return todo;
-    });
-
-    this.setState({ data });
+    if (i >= 0) {
+      this.setState({
+        data: [
+          ...this.state.data.slice(0, i),
+          {
+            ...this.state.data[i],
+            completed: !this.state.data[i].completed
+          },
+          ...this.state.data.slice(i + 1)
+        ]
+      })
+    }
   }
 
   render() {

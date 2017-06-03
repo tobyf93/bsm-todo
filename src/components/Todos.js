@@ -13,8 +13,8 @@ class Todos extends Component {
                   key={todo.id}
                   label={todo.label}
                   completed={todo.completed}
-                  toggle={() => this.props.toggle(todo.id) }
-                  destroy={() => this.props.destroy(todo.id) }
+                  toggle={() => this.props.toggle(todo) }
+                  destroy={() => this.props.destroy(todo) }
                 />
             )
           }
