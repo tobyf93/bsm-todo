@@ -3,17 +3,12 @@ import Todo from './Todo';
 
 class Todos extends Component {
   render() {
-    // JSX supports passing in element arrays
-    const array = [
-      <Todo label="First todo..." />,
-      <Todo label="Second todo..." />,
-      <Todo label="Third todo..." />
-    ];
-
     return (
       <section className="main">
         <ul className="todo-list">
-          {array}
+          {
+            this.props.data.map(todo => <Todo key={todo.id} label={todo.label} />)
+          }
         </ul>
       </section>
     );
