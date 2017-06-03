@@ -8,7 +8,12 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.id = 0;
+    this.getNewId = (() => {
+      let id = 0;
+      return () => id++;
+    })();
+
+    this.clearCompleted = this.clearCompleted.bind(this);
     this.create = this.create.bind(this);
     this.toggle = this.toggle.bind(this);
     this.destroy = this.destroy.bind(this);
@@ -19,12 +24,18 @@ class App extends Component {
     };
   }
 
+  clearCompleted(id) {
+    this.setState({
+      data: this.state.data.filter(todo => !todo.completed)
+    });
+  }
+
   create(label) {
     this.setState({
       data: [
         ...this.state.data,
         {
-          id: this.id++,
+          id: this.getNewId(),
           label,
           completed: false
         }
@@ -81,6 +92,7 @@ class App extends Component {
           show={this.state.show}
           filter={this.filter}
           count={this.state.data.filter(todo => todo.completed === false).length}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

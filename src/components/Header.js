@@ -8,8 +8,10 @@ class Header extends Component {
   }
 
   onKeyUp(e) {
-    if (e.keyCode === 13) {
-      this.props.create(e.target.value);
+    const value = e.target.value.trim();
+
+    if (e.keyCode === 13 && value) {
+      this.props.create(value);
       this.input.value = '';
     }
   }

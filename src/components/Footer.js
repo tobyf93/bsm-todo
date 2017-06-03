@@ -37,7 +37,7 @@ class Footer extends Component {
         </ul>
         <button
           className="clear-completed"
-          onClick={() => console.log('Clear completed Todos')}
+          onClick={this.props.clearCompleted}
         >
           Clear completed
         </button>
