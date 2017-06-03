@@ -100,7 +100,7 @@ class App extends Component {
         <Footer
           show={this.state.show}
           filter={this.filter}
-          count={this.state.data.filter(todo => todo.completed === false).length}
+          count={this.state.data.filter(todo => !todo.completed).length}
           clearCompleted={this.clearCompleted}
         />
       </div>
