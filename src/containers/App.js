@@ -13,6 +13,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		
+		this.addEntry = this.addEntry.bind(this);
 		this.filter = this.filter.bind(this);
 		this.state = {
 			show: ALL_TODOS
@@ -23,10 +24,16 @@ class App extends Component {
 		this.setState({ show: newFilter });
 	}
 	
+	addEntry(entryText) {
+		console.log('adding entry ' + entryText);
+	}
+	
 	render() {
 		return (
 			<div>
-				<Header/>
+				<Header
+					addEntry={this.addEntry}
+				/>
 				<Todos/>
 				<Footer
 					show={this.state.show}

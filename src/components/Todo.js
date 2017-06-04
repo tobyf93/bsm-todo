@@ -7,6 +7,9 @@ class Todo extends Component {
 		this.state = {
 			checked: false,
 		};
+		
+		// this seemed to work fine before (& after) I added this "bind" line
+		this.toggle = this.toggle.bind(this);
 	}
 	
 	toggle() {
