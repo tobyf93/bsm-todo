@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Todo from './Todo';
 
 class Todos extends Component {
-  render() {
+  render(props) {
     // JSX supports passing in element arrays
     const array = [
       <Todo label="First todo..." />,

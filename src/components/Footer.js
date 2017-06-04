@@ -10,17 +10,29 @@ class Footer extends Component {
 				</span>
 				<ul className="filters">
 					<li>
-						<a href="#" className="selected">
+						<a
+							href="#"
+							className={this.props.show == ALL_TODOS ? 'selected' : ''}
+							onClick={() => this.props.filter(ALL_TODOS)}
+						>
 							All
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a
+							href="#"
+							className={this.props.show == ACTIVE_TODOS ? 'selected' : ''}
+							onClick={() => this.props.filter(ACTIVE_TODOS)}
+						>
 							Active
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a
+							href="#"
+							className={this.props.show == COMPLETED_TODOS ? 'selected' : ''}
+							onClick={() => this.props.filter(COMPLETED_TODOS)}
+						>
 							Completed
 						</a>
 					</li>
