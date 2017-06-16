@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Todo from '../components/Todo';
+
 class Header extends Component {
 	render() {
 		return (
@@ -8,6 +10,7 @@ class Header extends Component {
 				<input
 					className="new-todo"
 					placeholder="What needs to be done?"
+					onKeyUp={this.props.addHandler}
 				/>
 			</header>
 		);
