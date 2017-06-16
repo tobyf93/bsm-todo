@@ -6,28 +6,40 @@ class Footer extends Component {
 		return (
 			<footer className="footer">
 				<span className="todo-count">
-					<strong>99</strong> items left
+					<strong>{this.props.remaining}</strong> items left
 				</span>
 				<ul className="filters">
 					<li>
-						<a href="#" className="selected">
-							All
+						<a
+						href="#"
+						className={this.props.show === ALL_TODOS ? 'selected' : ''}
+						onClick={() => this.props.filter(ALL_TODOS)}
+						>
+						All
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							Active
+						<a
+						href="#"
+						className={this.props.show === ACTIVE_TODOS ? 'selected' : ''}
+						onClick={() => this.props.filter(ACTIVE_TODOS)}
+						>
+						Active
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							Completed
+						<a
+						href="#"
+						className={this.props.show === COMPLETED_TODOS ? 'selected' : ''}
+						onClick={() => this.props.filter(COMPLETED_TODOS)}
+						>
+						Completed
 						</a>
 					</li>
 				</ul>
 				<button
 					className="clear-completed"
-					onClick={() => console.log('Clear completed Todos')}
+					onClick={this.props.clearHandler}
 				>
 					Clear completed
 				</button>
