@@ -3,19 +3,6 @@ import React, { Component } from 'react';
 class Todo extends Component {
 	constructor(props) {
 		super(props);
-		
-		this.state = {
-			checked: false,
-		};
-		
-		// this seemed to work fine before (& after) I added this "bind" line
-		this.toggle = this.toggle.bind(this);
-	}
-	
-	toggle() {
-		this.setState({
-			checked: !this.state.checked,
-		});
 	}
 	
 	render() {
@@ -25,13 +12,18 @@ class Todo extends Component {
 					<input
 						className="toggle"
 						type="checkbox"
-						checked={this.state.checked}
-						onChange={() => this.toggle()}
+						checked={this.props.done}
+						onChange={(e) => this.props.onChange(e.target.checked)}
 					/>
+					
 					<label>
 						{this.props.label}
 					</label>
-					<button className="destroy" onClick={() => console.log('Destroy Todo')} />
+					
+					<button 
+						className="destroy"
+						onClick={() => this.props.onRemove()}
+					/>
 				</div>
 			</li>
 		);
